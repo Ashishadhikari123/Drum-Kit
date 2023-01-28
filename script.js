@@ -1,67 +1,107 @@
-var numberOfDrums = document.querySelectorAll(".drum").length;
-
-// click event
-for(var i = 0; i < numberOfDrums; i++){
-document.querySelectorAll(".drum")[i].addEventListener("click",function(){
-    var innerHtml = this.innerHTML;
-    makeSound(innerHtml);
-    btnAnimation(innerHtml);
-});
+body {
+  text-align: center;
+  background-color: #283149;
 }
 
-// keyboard event
-document.addEventListener("keyup",function(event){
-    makeSound(event.key);
-    btnAnimation(event.key);
-});
+h1 {
+  font-size: 5rem;
+  color: #DBEDF3;
+  font-family: "Arvo", cursive;
+  text-shadow: 3px 0 #DA0463;
 
-function makeSound(key){
-    switch(key){
-
-        case "w":
-            var audio = new Audio("sounds/tom-1.mp3");
-            audio.play();
-            break;
-
-        case "a":
-            var audio = new Audio("sounds/tom-2.mp3");
-            audio.play();
-            break;
-
-        case "s":
-            var audio = new Audio("sounds/tom-3.mp3");
-            audio.play();
-            break;
-
-        case "d":
-            var audio = new Audio("sounds/tom-4.mp3");
-            audio.play();
-            break;
-
-        case "j":
-            var audio = new Audio("sounds/snare.mp3");
-            audio.play();
-            break;
-
-        case "k":
-            var audio = new Audio("sounds/crash.mp3");
-            audio.play();
-            break;
-
-        case "l":
-            var audio = new Audio("sounds/kick-bass.mp3");
-            audio.play();
-            break;
-
-        default:
-            console.log(innerHtml);
-    }
 }
 
-function btnAnimation(currentKey){
-    var activeBtn = document.querySelector("." + currentKey);
-    activeBtn.classList.add("pressed");
-    setTimeout(function(){
-        activeBtn.classList.remove("pressed");
-    },100);
+footer {
+  color: #DBEDF3;
+  font-family: sans-serif;
+}
+
+.w {
+  background-image: url("images/tom1.png");
+}
+
+.a {
+  background-image: url("images/tom2.png");
+}
+
+.s {
+  background-image: url("images/tom3.png");
+}
+
+.d {
+  background-image: url("images/tom4.png");
+}
+
+.j {
+  background-image: url("images/snare.png");
+}
+
+.k {
+  background-image: url("images/crash.png");
+}
+
+.l {
+  background-image: url("images/kick.png");
+}
+
+.set {
+  margin: 10% auto;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}
+
+.drum {
+  outline: none;
+  border: 10px solid #404B69;
+  font-size: 5rem;
+  font-family: 'Arvo', cursive;
+  line-height: 2;
+  font-weight: 900;
+  color: #DA0463;
+  text-shadow: 3px 0 #DBEDF3;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+
+/* media querie */
+
+@media only screen and (max-width: 800px){
+  .set{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .drum{
+    width: 30%;
+    height: 11rem;
+    border-radius: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  h1{
+    font-size: 5rem;
+  }
 }
