@@ -95,13 +95,13 @@ footer {
 
   .drum{
     width: 30%;
-    height: 11rem;
+    height: 9rem;
     border-radius: 40px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
   }
   h1{
-    font-size: 5rem;
+    font-size: 3rem;
   }
 }
