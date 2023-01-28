@@ -1,9 +1,20 @@
 var numberOfDrums = document.querySelectorAll(".drum").length;
 
+// click event
 for(var i = 0; i < numberOfDrums; i++){
 document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var innerHtml = this.innerHTML;
-    switch(innerHtml){
+    makeSound(innerHtml);
+});
+}
+
+// keyboard event
+document.addEventListener("keyup",function(event){
+    makeSound(event.key);
+});
+
+function makeSound(key){
+    switch(key){
 
         case "w":
             var audio = new Audio("sounds/tom-1.mp3");
@@ -39,11 +50,8 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
             var audio = new Audio("sounds/kick-bass.mp3");
             audio.play();
             break;
-            
+
         default:
             console.log(innerHtml);
     }
-
-
-});
 }
